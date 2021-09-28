@@ -9,7 +9,7 @@ class CustomUsers(models.Model):
     def generate_password_hash(self):
         return hashlib.sha1(self.password.encode()).hexdigest()
 
-    def check_password(self, password: str):
+    def check_password(self, password: str) -> bool:
         return self.password == hashlib.sha1(password.encode()).hexdigest()
 
     def restore_password(self):
